@@ -1,0 +1,788 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>相关问题总结 | </title><meta name="author" content="我的公主-怡宝"><meta name="copyright" content="我的公主-怡宝"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="相关问题总结你对IOC的理解 IOC 123IOC是控制反转,就是把实例化对象的权利交给容器,而不是我们自己在程序中实例化IOC主要的作用就是解耦   举个例子: 控制器和业务层例子,UserServlet中使用UserService接口,不依赖于 UserService的实现类,然后当我们替换下层UserService实现的时候,只需要修改Spring配置,而不需要我们修改UserSer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="相关问题总结">
+<meta property="og:url" content="https://coderitl.github.io/2023/12/12/624a4e6d/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="相关问题总结你对IOC的理解 IOC 123IOC是控制反转,就是把实例化对象的权利交给容器,而不是我们自己在程序中实例化IOC主要的作用就是解耦   举个例子: 控制器和业务层例子,UserServlet中使用UserService接口,不依赖于 UserService的实现类,然后当我们替换下层UserService实现的时候,只需要修改Spring配置,而不需要我们修改UserSer">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/33.jpg">
+<meta property="article:published_time" content="2023-12-12T21:44:28.000Z">
+<meta property="article:modified_time" content="2024-01-02T12:07:27.908Z">
+<meta property="article:author" content="我的公主-怡宝">
+<meta property="article:tag" content="coder-itl、Spring Security、Spring Boot、Java、Git、Linux、Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/33.jpg"><link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png"><link rel="canonical" href="https://coderitl.github.io/2023/12/12/624a4e6d/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '相关问题总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-02 12:07:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/my.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" onerror="onerror=null;src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> Java-学习路线</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/33.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title=""><span class="site-name"></span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> Java-学习路线</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">相关问题总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-12-12T21:44:28.000Z" title="Created 2023-12-12 21:44:28">2023-12-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-02T12:07:27.908Z" title="Updated 2024-01-02 12:07:27">2024-01-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="相关问题总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer"/>
+
+
+
+<h3 id="相关问题总结"><a href="#相关问题总结" class="headerlink" title="相关问题总结"></a>相关问题总结</h3><h4 id="你对IOC的理解"><a href="#你对IOC的理解" class="headerlink" title="你对IOC的理解"></a>你对IOC的理解</h4><ul>
+<li><p><code>IOC</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IOC是控制反转,就是把实例化对象的权利交给容器,而不是我们自己在程序中实例化</span><br><span class="line">IOC主要的作用就是解耦</span><br><span class="line">   举个例子: 控制器和业务层例子,UserServlet中使用UserService接口,不依赖于 UserService的实现类,然后当我们替换下层UserService实现的时候,只需要修改Spring配置,而不需要我们修改UserServlet的代码,这就是完全解耦</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="UML是什么-UML中如何表示继承、关联、依赖、实现"><a href="#UML是什么-UML中如何表示继承、关联、依赖、实现" class="headerlink" title="UML是什么?UML中如何表示继承、关联、依赖、实现"></a>UML是什么?UML中如何表示继承、关联、依赖、实现</h4><ul>
+<li><p><code>UML</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UML是 Unifeid Model Language 的缩写,中文是统一建模语言,是由一整套图表组成的标准化建模语言,通过使用 UML 使得在软件开发之前,对整个软件设计有更好的可读性,可理解性,从而降低开发风险,同时,也能方便各个开发人员之间的交流</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>UML</code> 的目的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 为用户提供现成的、有表现力的可视化建模语言,以便他们开发和交换有意义的模型</span><br><span class="line"><span class="number">2.</span> 为核心概念提供可扩展性和特殊化机制</span><br><span class="line"><span class="number">3.</span> 独立于特定的变成语言和开发过程</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> <a target="_blank" rel="noopener" href="https://juejin.cn/post/7022154172686401572#heading-6">https://juejin.cn/post/7022154172686401572#heading-6</a></p>
+</blockquote>
+<ul>
+<li><p>UML类图中继承关系使用空心三角形+实线表示。</p>
+</li>
+<li><p>UML类图中实现关系使用空心三角形+虚线表示。</p>
+</li>
+<li><p>UML类图中关联使用实线箭头表示。</p>
+</li>
+<li><p>UML类图中依赖关系使用虚线箭头表示。</p>
+</li>
+<li><p>UML类图中组合关系使用实心菱形+实线表示。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="依赖倒置的原则是什么"><a href="#依赖倒置的原则是什么" class="headerlink" title="依赖倒置的原则是什么"></a>依赖倒置的原则是什么</h4><p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/direct/e7d509db281745abb50b4ecd5406cacd.png" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UserServlet:</span><br><span class="line"><span class="type">UserService</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserServiceImpl</span>(); <span class="comment">// 耦合</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> UserService service; <span class="comment">// 解耦</span></span><br><span class="line"><span class="type">ApplicationContext</span> <span class="variable">ax</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AnnoationCo</span></span><br></pre></td></tr></table></figure>
+<h4 id="接口和抽象类的区别是什么"><a href="#接口和抽象类的区别是什么" class="headerlink" title="接口和抽象类的区别是什么"></a>接口和抽象类的区别是什么</h4><ul>
+<li><p>语法</p>
+<ul>
+<li>接口中,所有的方法都是抽象的,都被<code>public abstract</code>修饰,抽象类中,即可以有抽象方法,也可以有具体方法</li>
+<li>接口中的所有字段,都默认必须被<code>public static final</code>修饰;抽象类中的字段没有任何限制</li>
+<li>接口不能被实例化,抽象类也不能被实例化</li>
+<li>接口中没有构造代码块,也没有构造器,抽象类啥都有</li>
+</ul>
+</li>
+<li><p>作用</p>
+<ul>
+<li><p>接口的作用(<code>例子: UserService</code>)</p>
+<ul>
+<li>提高程序扩展性</li>
+<li>统一访问</li>
+<li>完全解耦</li>
+</ul>
+</li>
+<li><p>抽象类的作用: 抽象类就是为了被子类继承,从而提高代码重用性(<code>List和AbstractList和ArrayList和LinkedList</code>)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="子类的实例化过程"><a href="#子类的实例化过程" class="headerlink" title="子类的实例化过程"></a>子类的实例化过程</h4><ul>
+<li><p>调用父类静态块</p>
+</li>
+<li><p>调用子类静态块</p>
+</li>
+<li><p>调用父类构造代码块</p>
+</li>
+<li><p>普通字段属于代码快</p>
+</li>
+<li><p>调用父类构造器</p>
+</li>
+<li><p>调用子类构造代码块</p>
+</li>
+<li><p>调用子类构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> coder-itl</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@createDate</span> 2023/12/15 10:01</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Entity</span> com.example.controller.App</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.example.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Zi</span> <span class="variable">zi</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Zi</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Fu</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Fu static&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Fu</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Fu 构造方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> outputFu();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">outputFu</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;变量 a 的执行时机....&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Fu 代码快&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Zi</span> <span class="keyword">extends</span> <span class="title class_">Fu</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Zi() static&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Zi</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Zi() 构造方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Zi() 代码快&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/direct/54d69f52d96a4106a0fdedebaa4dc808.png" alt=""></p>
+</li>
+</ul>
+<h4 id="事务的四大特性"><a href="#事务的四大特性" class="headerlink" title="事务的四大特性"></a>事务的四大特性</h4><ul>
+<li><p>原子性: 事务中的多个步骤,要么都执行,要么都不执行</p>
+<blockquote>
+<p>比如转账,就是一个事务,张三给李四转账200,其中就有2个步骤,1.张三的余额减去200,2.李四的余额加上200,这两个步骤,要么都执行,要么都不执行。如果第一步执行成功,第二步执行失败，那么第一步的操作也需要回滚</p>
+</blockquote>
+</li>
+<li><p>一致性: 在事务执行前后,数据在逻辑上保持一致</p>
+<blockquote>
+<p>比如转账:张三1000，李四1000，他们的总和2000,张三给李四转账200以后,张三800,李四1200，此时综合仍然是2000,转账前后的总和保持不变</p>
+</blockquote>
+</li>
+<li><p>隔离型</p>
+<blockquote>
+<p>多个事务并发操作相同的数据时,一个事务对其他事务的影响。具体如何影响的,取决于隔离级别</p>
+</blockquote>
+<ul>
+<li>隔离级别有四种<ul>
+<li>读未提交</li>
+<li>读已提交</li>
+<li>不可重复读</li>
+<li>串行化</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>持久性: 一个事务一旦结束(提交或者回滚),对数据库中数据的影响会一直保存下去,任何设备故障都不会影响存储的数据</p>
+</li>
+</ul>
+<h4 id="脏读、幻读、不可重复读分别是什么"><a href="#脏读、幻读、不可重复读分别是什么" class="headerlink" title="脏读、幻读、不可重复读分别是什么"></a>脏读、幻读、不可重复读分别是什么</h4><ul>
+<li><p>脏读</p>
+<p>当一个事务读取到另一个事务尚未提交的数据时,发生了脏读,如果另一个事务回滚,读取到的数据就是无效的</p>
+</li>
+<li><p>幻读</p>
+<p>当一个事务在读取某个范围内的数据时,另一个事务在该范围内插入了新的数据,导致第一个事务的读取结果发生了变化,就发生了幻读</p>
+</li>
+<li><p>不可重复读</p>
+<p>当一个事务在读取某个数据后,另一个事务修改了该数据,导致第一个事务再次读取时得到不同的结果,就发生了不可重复读</p>
+</li>
+</ul>
+<h4 id="事务的四个隔离级别分别是什么"><a href="#事务的四个隔离级别分别是什么" class="headerlink" title="事务的四个隔离级别分别是什么"></a>事务的四个隔离级别分别是什么</h4><ul>
+<li>读未提交：允许一个事务读取另一个事务未提交的数据,最低的隔离级别,可能导致脏读、幻读、不可重复读</li>
+<li>读已提交: 一个事务只能读取已提交的数据,解决了脏读问题,但仍可能出现幻读和不可重复读</li>
+<li>可重复读: 保证在事务执行期间同一查询的结果时一致的,解决了脏读和不可重复读,但仍可能出现幻读</li>
+<li>串行化: 最高的隔离级别,通过锁定事务涉及的数据,避免了脏读、不可重复读和幻读，但可能导致性能下降</li>
+</ul>
+<h4 id="ArrayList和linkedList的区别"><a href="#ArrayList和linkedList的区别" class="headerlink" title="ArrayList和linkedList的区别"></a>ArrayList和linkedList的区别</h4><ul>
+<li><p>数组</p>
+<blockquote>
+<p>数组(<code>Array</code>)是一种用连续的内存空间存储相同数据类型数据的线性的数据结构</p>
+</blockquote>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/direct/d99090dafdef44fe878959bac5426818.png" alt=""></p>
+<ul>
+<li><p>数组获取元素的寻址公式</p>
+<blockquote>
+<p><code>a[i] = baseAddress + i *(dataTypeSize)</code> </p>
+</blockquote>
+<ul>
+<li><code>baseAddress</code>: 数组的首地址(<code>假设 10</code>)</li>
+<li><code>dataTypeSize</code>： 代表数组中元素类型的大小,<code>int</code>型的数据,<code>dataTypeSize=4</code>字节</li>
+</ul>
+</li>
+<li><p>为什么数组索引从<code>0</code>开始呢?假如从<code>1</code>开始不行吗</p>
+<ul>
+<li>在根据数组索引获取元素的时候，会用索引和寻址公式来计算内存所对应的元素数据,寻址公式是:数组的首地址 + 索引 * 存储数据的类型大小</li>
+<li>如果数组的索引从 <code>1</code>开始,寻址公式中,就需要增加一次减法操作,对于<code>CPU</code>来说就多了一次指令,性能不高</li>
+</ul>
+</li>
+<li><p>操作数组的时间复杂度(<code>查找</code>)</p>
+<ul>
+<li><p>知道索引查找的时间复杂度</p>
+<blockquote>
+<p>数组的元素的访问是通过下标来访问的,计算机通过数组的首地址和寻址公式能够快速的找到想要访问的元素,时间复杂度为<code>O(1)</code></p>
+</blockquote>
+</li>
+<li><p>不知道索引的时间复杂度</p>
+<ul>
+<li><p>查找的元素未排序</p>
+<blockquote>
+<p>平均负载度是<code>O(n)</code></p>
+</blockquote>
+</li>
+<li><p>查找的元素经过排序</p>
+<blockquote>
+<p>二分查找(<code>(O(log_n))</code>)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数组元素的插入、删除的复杂度</p>
+<ul>
+<li>插入、删除的平均复杂度为<code>O(n)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>ArrayList</code>底层的实现原理是什么</p>
+<ul>
+<li><code>ArrayList</code>底层是用动态数组实现的</li>
+<li><code>ArrayList</code>初始容量为<code>0</code>，当第一次添加数据的时候才会初始化容量为<code>10</code></li>
+<li><code>ArrayList</code>再进行扩容的时候是原来容量的<code>1.5</code>倍,每次扩容都需要拷贝数组</li>
+<li><code>ArrayList</code>在添加数据的时候<ul>
+<li>确保数组已使用长度(<code>size+1</code>)之后足够存下下一个数据</li>
+<li>计算数组的容量,如果当前数组已使用<code>size（长度）+1</code>后大于当前的数组长度,则调用<code>grow</code>方法扩容(<code>扩容原来的 1.5 倍</code>)</li>
+<li>确保新增的数据有地方存储后,则将新元素添加到位于<code>size</code>的位置上</li>
+<li>返回添加成功布尔值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>ArrayList list = new ArrayList(10)</code>中的<code>list</code>扩容几次</p>
+<blockquote>
+<p>该语句只是声明和实例了一个<code>ArrayList</code>，指定了容量为<code>10</code>，为扩容</p>
+</blockquote>
+</li>
+<li><p>如何实现数组和<code>List</code>之间的转换</p>
+<ul>
+<li>数组转<code>List</code>，使用<code>JDK</code>中<code>java.util.Arrays</code>工具类的<code>asList</code>方法</li>
+<li><code>List</code>转数组,使用<code>List</code>的<code>toArray</code>方法,无参<code>toArray</code>方法返回<code>Object</code>数组,传人初始化长度的数组对象,返回该对象数组</li>
+</ul>
+</li>
+<li><p>用<code>Arrays.asList</code>转<code>List</code>后,如果修改了数组内容,list会受影响吗</p>
+<blockquote>
+<p>如果修改了数组的内容,list会受影响,因为他的底层使用了<code>Arrays</code>类中的内部类<code>ArrayList</code>来构造的集合,在这个集合的构造器中,把我们传入的这个集合进行了包装而已,最终指向的都是同一个内存地址</p>
+</blockquote>
+</li>
+<li><p>List用toArray转数组后,如果修改了List内容,数组受影响吗</p>
+<blockquote>
+<p>如果修改了 list 内容,数组不会影响,当调用了 toArray 以后,在底层是它是进行了数组拷贝,跟原来的元素就没啥关系了,所以即使liet修改了以后,数组也不受影响</p>
+</blockquote>
+</li>
+<li><p>ArrayList和LinkedList的区别</p>
+<ul>
+<li><p>底层数据结构层面</p>
+<ul>
+<li>ArrayList 是动态数组的数据结构实现的</li>
+<li>LinkedList是双向链表的数据结构实现的</li>
+</ul>
+</li>
+<li><p>操作效率</p>
+<ul>
+<li>ArrayList按照下标查询的时间复杂度是<code>O(1)</code>,LinkedList不支持下标查询</li>
+<li>查找(未知索引):ArrayList需要遍历,链表也需要遍历,时间复杂度都是<code>O(1)</code></li>
+<li>新增和删除<ul>
+<li>ArrayList 尾部插入和删除,时间复杂度是<code>O(1)</code>，其他部分增删需要挪动数组,时间复杂度是<code>O(n)</code></li>
+<li>LinkedList 头尾节点增加、删除时间复杂度是(<code>O(1)</code>)，其他都需要遍历链表,时间复杂度是(<code>O(n)</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>内存空间占用</p>
+<ul>
+<li>ArrayList底层是数组,内存连续,节省内存</li>
+<li>LinkedList是双向链表需要存储数据,和两个指针,更占用内存</li>
+</ul>
+</li>
+<li><p>线程安全</p>
+<ul>
+<li><p>ArrayList 和 LinkedList 都不是线程安全的</p>
+</li>
+<li><p>如果需要保证线程安全,有两种方案</p>
+<ul>
+<li><p>在方法内使用,局部变量则是线程安全的</p>
+</li>
+<li><p>使用线程安全的ArrayList和LinkedList</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Object&gt; syncArrayList = Collections.synchorizedList(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;());</span><br><span class="line">List&lt;Object&gt; syncLinkedList = Collections.synchorizedList(<span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;());</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="JDK动态代理和CGLIB动态代理的区别"><a href="#JDK动态代理和CGLIB动态代理的区别" class="headerlink" title="JDK动态代理和CGLIB动态代理的区别"></a>JDK动态代理和CGLIB动态代理的区别</h4><ul>
+<li>JDK动态代理只提供接口的代理,不支持类的代理<ul>
+<li>jdk会在运行时为目标类生成一个动态代理类<code>$proxy*.class</code></li>
+<li>该代理类是实现了目标类接口,并且代理类会实现接口所有的方法增强代码</li>
+<li>调用是通过代理类先调用处理类进行增强,再通过反射的方式进行调用目标方法,从而实现AOP</li>
+</ul>
+</li>
+<li>如果代理类没有实现接口，那么<code>SpringAOP</code>会选择使用<code>Cglib</code> 来动态代理目标类<ul>
+<li><code>cglib</code>的底层是通过 <code>ASM</code> 在运行时动态的生成目标类的一个子类,还有其他相关类,都是为增强调用时效率,并且会重写父类所有的方法增强代码</li>
+<li>调用时<code>先通过代理类进行增强,再直接调用父类</code>对应的方法进行调用目标方法，从而实现<code>AOP</code><ul>
+<li><code>Cglib</code> 是通过继承的方式做的动态代理,因此如果某个类被标记为 final,那么他是无法使用 <code>Cglib</code>做动态代理的</li>
+<li><code>Cglib</code> 除了生成目标子类代理类,还有一个<code>FastClass</code>(路由类),可以让本类方法调用进行增强(不是必须的)，而不会像<code>jdk</code>代理那样本类方法调用增强会失效</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Autowired和-Resource"><a href="#Autowired和-Resource" class="headerlink" title="@Autowired和@Resource"></a>@Autowired和@Resource</h4><ul>
+<li>@Autowired 是spring提供的,@Resource是jdk内置的</li>
+<li>@Autowired是优先按照类型查找<ul>
+<li>找到一个就装配</li>
+<li>找不到,就看<code>required</code>属性的取值,true就报错,false就不报错,而是注入null</li>
+<li>找到多个: 就按照名称找,找到就注入,找不到就报错</li>
+</ul>
+</li>
+<li>@Resource优先按照名称找<ul>
+<li>找到一个就装配</li>
+<li>找不到就报错</li>
+<li>找到多个也报错</li>
+</ul>
+</li>
+</ul>
+<h4 id="什么是线程安全"><a href="#什么是线程安全" class="headerlink" title="什么是线程安全"></a>什么是线程安全</h4><ul>
+<li><p>线程安全</p>
+<div class="note green icon-padding modern"><i class="note-icon fab fa-internet-explorer"></i><p>线程安全是指在多线程环境中,一个函数或者一个程序的执行都能够按照设计的正确方式进行,而不会产生不确定的结果或者破坏数据的一致性,在并发编程中,多个线程可能同时访问共享的数据,如果不采取适当的措施，就可能导致数据竞争和不一致的状态。</p>
+<p>一个线程安全的程序在多线程环境中的执行结果与在单线程环境中的执行结果是一致的,不会受到其他线程的影响</p>
+</div>
+<ul>
+<li>实现线程安全的方法<ul>
+<li>互斥锁</li>
+<li>信号量</li>
+<li>条件变量</li>
+<li>原子操作</li>
+<li>不可变对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ArrayList和Vector的区别"><a href="#ArrayList和Vector的区别" class="headerlink" title="ArrayList和Vector的区别"></a>ArrayList和Vector的区别</h4><h4 id="你对AOP的理解"><a href="#你对AOP的理解" class="headerlink" title="你对AOP的理解"></a>你对AOP的理解</h4><ul>
+<li><p>理解</p>
+<p><code>AOP</code>面向切面编程.<code>AOP</code>是对传统<code>OOP(面向对象编程)</code>的补充。<code>AOP</code>的主要作用就是为了优雅的织入逻辑。也就是给一个现有类添加新的功能时,不用修改该类的源码,符合<code>开闭原则</code>,所谓的开闭原则就是<code>对修改关闭,对扩展开放</code></p>
+<p>举个例子: 给某个业务类添加日志功能。只需要额外创建一个切面类，在该类上面添加<code>@Component,@Aspect</code>注解,在该切面类中编写通知,通知就是一个方法,该方法封装了：在什么时候，什么地方(切点),什么事情(方法体)。再从<code>IoC</code>容器中获取该业务类的对象时,获取到的就是一个织入了日志逻辑的代理对象。对代理对象的方法调用,就会执行切面逻辑</p>
+<p>Spring切面的底层原理是:<code>JDK</code>的动态代理</p>
+</li>
+</ul>
+<h4 id="和-equals-的区别"><a href="#和-equals-的区别" class="headerlink" title="== 和 equals 的区别"></a>== 和 equals 的区别</h4><ul>
+<li><p>Integer</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认 byte 范围, (-128) - (+127)</span></span><br><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">i2</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">sout(i==i2) <span class="comment">// true </span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="String的常用方法有哪些-接收什么参数-返回什么值"><a href="#String的常用方法有哪些-接收什么参数-返回什么值" class="headerlink" title="String的常用方法有哪些?接收什么参数,返回什么值"></a>String的常用方法有哪些?接收什么参数,返回什么值</h4><h4 id="String和StringBuilder的区别"><a href="#String和StringBuilder的区别" class="headerlink" title="String和StringBuilder的区别"></a>String和StringBuilder的区别</h4><ul>
+<li><p><code>String</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// String 的不可变性</span></span><br><span class="line">String 对象是不可变的，一旦创建，其值就不能被修改。每次对 String 进行操作时，实际上都是创建了一个新的 String 对象。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为什么 String 是线程安全的</span></span><br><span class="line">String 是线程安全的，因为它是不可变的，多个线程可以同时访问一个 String 对象而不会导致问题。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="你知道SpringMVC常用的注解有哪些"><a href="#你知道SpringMVC常用的注解有哪些" class="headerlink" title="你知道SpringMVC常用的注解有哪些"></a>你知道SpringMVC常用的注解有哪些</h4><ul>
+<li><p>@Component声明一个Bean</p>
+</li>
+<li><p>@Configuration 声明一个配置类</p>
+</li>
+<li><p>@Import导入配置类</p>
+</li>
+<li><p>@ImportResource导入外部的属性配置资源</p>
+</li>
+<li><p>@ComponentScan包扫描</p>
+</li>
+<li><p>@Repostory持久层代理Bean声明注解</p>
+</li>
+<li><p>@Service服务层代理Bean声明注解</p>
+</li>
+<li><p>@Controller控制层声明Bean注解</p>
+</li>
+<li><p>@RequestMapping请求映射</p>
+</li>
+<li><p>@RequestBody获取JSON参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实体参数之前,用于接收前端传递的 json 格式的数据</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>@RequestParam解决请求参数映射与不一致问题</p>
+</li>
+<li><p>@PathVariable 路径参数</p>
+</li>
+<li><p>@Bean 声明一个Bean</p>
+</li>
+<li><p>@Value 对基本类型注入值</p>
+</li>
+<li><p>@Cookie 获取cookie</p>
+</li>
+<li><p>@RequestHeader获取请求头</p>
+</li>
+<li><p>@EnableWebMVC启动MVC,JSON格式</p>
+</li>
+<li><p>@EnableAspectJAutoProxy开启AOP注解支持</p>
+</li>
+<li><p>@EnableTransactionManager开启事务注解支持</p>
+</li>
+<li><p>@DateTimeFormatter 时间格式化</p>
+</li>
+</ul>
+<h4 id="StringBuilder和StringBuffer的区别"><a href="#StringBuilder和StringBuffer的区别" class="headerlink" title="StringBuilder和StringBuffer的区别"></a>StringBuilder和StringBuffer的区别</h4><ul>
+<li><p>StringBuilder和StringBuffer类是可变的,他们可以直接在原始对象上进行修改而不创建新的对象,这种特性使得在频繁拼接或修改字符串时更高效</p>
+</li>
+<li><p>StringBuilder类是非线程安全的,他的方法没有进行同步处理,如果在多线程环境下使用StringBuilder，需要额外采取措施保证线程安全</p>
+</li>
+<li>StringBuffer类是线程安全的,他的方法进行了同步处理,因此可以在多线程环境下使用</li>
+</ul>
+<h4 id="Collection和Collections的区别"><a href="#Collection和Collections的区别" class="headerlink" title="Collection和Collections的区别"></a>Collection和Collections的区别</h4><ul>
+<li>Collection是集合的父接口<ul>
+<li><code>List</code> 是一个有序的集合，允许重复元素。它继承自 <code>Collection</code> 接口，且每个元素都有一个与之相关的索引。<ul>
+<li><strong>特点：</strong><ul>
+<li>可以通过索引访问元素，索引从0开始。</li>
+<li>允许存储重复元素。</li>
+<li>常见的实现类有 <code>ArrayList</code>、<code>LinkedList</code> 和 <code>Vector</code>。</li>
+</ul>
+</li>
+<li><strong>常用方法：</strong><ul>
+<li><code>add(E element)</code>：在列表末尾添加元素。</li>
+<li><code>get(int index)</code>：获取指定索引位置的元素。</li>
+<li><code>remove(int index)</code>：移除指定索引位置的元素。</li>
+<li><code>size()</code>：返回列表中的元素数目。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><strong>定义：</strong> <code>Set</code> 是一个不允许包含重复元素的集合，不保证元素的顺序。它继承自 <code>Collection</code> 接口。</li>
+<li>特点：<ul>
+<li>不允许存储重复元素，即集合中的元素是唯一的。</li>
+<li>不保证元素的顺序，即不可以通过索引访问元素。</li>
+<li>常见的实现类有 <code>HashSet</code>、<code>LinkedHashSet</code> 和 <code>TreeSet</code>。</li>
+</ul>
+</li>
+<li>常用方法：<ul>
+<li><code>add(E element)</code>：向集合中添加元素。</li>
+<li><code>remove(Object o)</code>：从集合中移除指定元素。</li>
+<li><code>contains(Object o)</code>：判断集合是否包含指定元素。</li>
+<li><code>size()</code>：返回集合中的元素数目。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Collections它包含了一系列静态方法，用于对集合进行操作，例如排序、搜索、线程安全化等。<ul>
+<li><code>Collections.synchronizedSet(Set&lt;T&gt; set)</code> 方法来获得一个线程安全的包装器</li>
+<li>使用 <code>Collections.synchronizedList(List&lt;T&gt; list)</code> 方法可以获得一个线程安全的 <code>List</code> 包装器。</li>
+</ul>
+</li>
+</ul>
+<h4 id="你对代理模式的理解"><a href="#你对代理模式的理解" class="headerlink" title="你对代理模式的理解"></a>你对代理模式的理解</h4><ul>
+<li>代理模式有三种<ul>
+<li>静态代理模式</li>
+<li>动态代理<ul>
+<li>new ProxyInstance(classload,interface,handler)</li>
+<li>handler -&gt; invoke 可以执行目标方法</li>
+<li>AOP思想</li>
+</ul>
+</li>
+<li>Cglib动态代理</li>
+</ul>
+</li>
+</ul>
+<h4 id="jdk和jre的区别？"><a href="#jdk和jre的区别？" class="headerlink" title="jdk和jre的区别？"></a>jdk和jre的区别？</h4><ul>
+<li>jdk,java标准开发包,他提供了编译、运行java程序所需的各种工具和资源,包括java编译器,java运行时环境,以及常用的java类库</li>
+<li>jre java 运行环境,用于运行 java的字节码文件,jre 中包含了jvm 以及 jvm 工作所需要的类库,普通用户只需要安装 jre 来运行 java 程序,而程序开发者必须安装 jdk 来编译，调试程序</li>
+<li>jvm Java 虚拟机是 jre 的一部分,它是整个java实现跨平台的最核心的部分,负责运行字节码文件</li>
+</ul>
+<h4 id="HashMap和Hashtable的区别？"><a href="#HashMap和Hashtable的区别？" class="headerlink" title="HashMap和Hashtable的区别？"></a>HashMap和Hashtable的区别？</h4><ul>
+<li>HashMap 是非线程安全的,HashTable 是线程安全的,因为 HashTable 内部的方法基本都经过 synchronzied 修饰,如果要保证线程安全就使用<code>ConcurrentHashMap</code></li>
+<li>因为线程安全的问题,HashMap要比HashTable效率高一点</li>
+<li>HashMap 可以存储null的key和value,但 null 作为键只能有一个,null作为值可以有多个,HashTable不允许有null键和null值,会抛出空指针异常</li>
+<li>初始容量大小和每次扩容大小的不同<ul>
+<li>创建时如果不执行初始容量值,HashTabke默认的初始大小为 11,之后每次扩充,容量变为原来的 2n+1,HashMap默认的初始值大小为 16，之后每次扩容，容量变为原来的2 倍</li>
+<li>创建时如果给定了容量初始值,那么Hashtable会直接使用给定的大小，而HashMap会将其阔充为 2的幂次方大小</li>
+</ul>
+</li>
+<li>jdk1.8 以后的HashMap 在解决哈希冲突时有了较大的变化,当链表长度大于阈值（默认为 8 ，会将链表转换成红黑树前会判断，如果当前数组的长度小于 64,那么会选择先进性数组扩容,而不是转换为红黑树）时，将链表转换为红黑树，以减少搜索时间,HashTable没有这样的机制</li>
+</ul>
+<h4 id="HashMap的put过程？"><a href="#HashMap的put过程？" class="headerlink" title="HashMap的put过程？"></a>HashMap的put过程？</h4><h4 id="HashMap1-7和HashMap1-8的区别？"><a href="#HashMap1-7和HashMap1-8的区别？" class="headerlink" title="HashMap1.7和HashMap1.8的区别？"></a>HashMap1.7和HashMap1.8的区别？</h4><h4 id="线程的状态有哪些？"><a href="#线程的状态有哪些？" class="headerlink" title="线程的状态有哪些？"></a>线程的状态有哪些？</h4><h4 id="要给一个List中添加元素，用什么方法？-从List中删除一个元素用什么方法？"><a href="#要给一个List中添加元素，用什么方法？-从List中删除一个元素用什么方法？" class="headerlink" title="要给一个List中添加元素，用什么方法？ 从List中删除一个元素用什么方法？"></a>要给一个List中添加元素，用什么方法？ 从List中删除一个元素用什么方法？</h4><ul>
+<li><p>说明</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* 要给一个List中添加元素，我们可以使用add方法。这个方法接受一个参数，即我们想要添加到列表中的元素。例如，如果我们有一个String类型的ArrayList，我们可以这样添加一个元素：</span><br><span class="line">* 这段代码会在列表的末尾添加一个新元素</span><br><span class="line">* </span><br><span class="line">* 从List中删除一个元素，我们可以使用remove方法。这个方法可以接受一个对象作为参数，或者一个索引。</span><br><span class="line">* 如果我们传入一个对象，它会从列表中删除第一个匹配的元素。</span><br><span class="line">* 如果我们传入一个索引，它会删除在这个索引位置的元素。例如：</span><br><span class="line">* 这段代码会从列表中删除第一个匹配的<span class="string">&quot;element&quot;</span>。</span><br><span class="line">* 如果我们知道元素的索引，我们也可以这样删除元素代码会删除在索引<span class="number">0</span>位置的元素。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="判断Map中是否包含某个键值，用什么方法？Map中是否包含某个值，用什么方法？"><a href="#判断Map中是否包含某个键值，用什么方法？Map中是否包含某个值，用什么方法？" class="headerlink" title="判断Map中是否包含某个键值，用什么方法？Map中是否包含某个值，用什么方法？"></a>判断Map中是否包含某个键值，用什么方法？Map中是否包含某个值，用什么方法？</h4><ul>
+<li><p>说明</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">判断Map中是否包含某个键值，我们可以使用containsKey方法。这个方法接受一个对象作为参数，如果Map中包含一个与这个对象相等的键，那么这个方法就会返回<span class="literal">true</span></span><br><span class="line"> * 判断Map中是否包含某个值，我们可以使用containsValue方法。这个方法接受一个对象作为参数，如果Map中包含一个与这个对象相等的值，那么这个方法就会返回<span class="literal">true</span></span><br><span class="line"> * 这两个方法都是基于对象的equals方法来判断相等性的，所以在使用这些方法时，你需要确保你的键和值的类正确地覆盖了equals方法。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="如何计算两个集合的交集、差集、并集？"><a href="#如何计算两个集合的交集、差集、并集？" class="headerlink" title="如何计算两个集合的交集、差集、并集？"></a>如何计算两个集合的交集、差集、并集？</h4><ul>
+<li><p>说明</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="comment">// 交集：我们可以使用 retainAll 方法来计算两个集合的交集。这个方法会修改调用它的集合，使其只包含同时存在于两个集合中的元素。</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">tretainAllTest</span><span class="params">()</span> &#123;</span><br><span class="line">        Set&lt;Integer&gt; set1 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>));</span><br><span class="line">        Set&lt;Integer&gt; set2 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(Arrays.asList(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>));</span><br><span class="line">        set1.retainAll(set2);</span><br><span class="line">        <span class="comment">// 现在set1包含的元素是3和4，这是set1和set2的交集</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 差集：我们可以使用removeAll方法来计算两个集合的差集。这个方法会修改调用它的集合，移除所有同时存在于两个集合中的元素</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">removeAllTest</span><span class="params">()</span> &#123;</span><br><span class="line">        Set&lt;Integer&gt; set1 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>));</span><br><span class="line">        Set&lt;Integer&gt; set2 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(Arrays.asList(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>));</span><br><span class="line">        set1.removeAll(set2);</span><br><span class="line">        <span class="comment">// 现在set1包含的元素是1和2，这是set1相对于set2的差集</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 并集：我们可以使用addAll方法来计算两个集合的并集。这个方法会修改调用它的集合，添加所有存在于另一个集合中的元素</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">addAllTest</span><span class="params">()</span> &#123;</span><br><span class="line">        Set&lt;Integer&gt; set1 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>));</span><br><span class="line">        Set&lt;Integer&gt; set2 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(Arrays.asList(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>));</span><br><span class="line">        set1.addAll(set2);</span><br><span class="line">        <span class="comment">// 现在set1包含的元素是1, 2, 3, 4, 5, 6，这是set1和set2的并集</span></span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 注意: 这些操作可能会修改调用它们的集合。如果你不想修改原始集合，你可以先创建一个新的集合，然后在新集合上进行操作 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="ArrayList和LinkedList的区别？"><a href="#ArrayList和LinkedList的区别？" class="headerlink" title="ArrayList和LinkedList的区别？"></a>ArrayList和LinkedList的区别？</h4><ul>
+<li><p>说明</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">* ArrayList和LinkedList都是Java中的List接口的实现，但它们在内部数据结构和性能上有一些重要的区别：</span><br><span class="line"> * </span><br><span class="line"> * <span class="number">1.</span> 内部数据结构：ArrayList内部使用动态数组来存储元素，而LinkedList内部使用双向链表来存储元素。</span><br><span class="line"> * </span><br><span class="line"> * <span class="number">2.</span> 性能：由于内部数据结构的差异，ArrayList和LinkedList在不同操作上的性能有所不同：</span><br><span class="line"> * -</span><br><span class="line"> * 获取元素：ArrayList通过索引直接访问元素，所以获取元素的速度很快，时间复杂度为O(<span class="number">1</span>)。而LinkedList需要从头（或尾）开始遍历到指定的索引，所以获取元素的速度较慢，时间复杂度为O(n)。</span><br><span class="line"> * -</span><br><span class="line"> * 添加/删除元素：ArrayList添加或删除元素时，可能需要移动数组中的其他元素来填补空位或创建空位，所以添加/删除元素的速度较慢。而LinkedList添加或删除元素只需要改变一些指针的指向，所以添加/删除元素的速度较快。但是，如果添加/删除的位置不是链表的头部或尾部，LinkedList仍然需要遍历到指定的位置，这会增加时间复杂度。</span><br><span class="line"> * </span><br><span class="line"> * <span class="number">3.</span> 内存占用：由于LinkedList需要额外的空间来存储节点之间的链接，所以它的内存占用比ArrayList更大。</span><br><span class="line"> * </span><br><span class="line"> * 总的来说，如果你的操作主要是随机访问元素，那么ArrayList可能是更好的选择。如果你的操作主要是在列表的头部或尾部添加或删除元素，那么LinkedList可能是更好的选择。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="斐波那契"><a href="#斐波那契" class="headerlink" title="斐波那契"></a>斐波那契</h4><ul>
+<li><p>斐波那契</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 斐波那契数列</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">foo</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (index &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> foo(index - <span class="number">1</span>) + foo(index - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">我的公主-怡宝</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://coderitl.github.io/2023/12/12/624a4e6d/">https://coderitl.github.io/2023/12/12/624a4e6d/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/33.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/14/cd2e49b2/" title="网站资源收集"><img class="cover" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.6/bbg/03.jpg" onerror="onerror=null;src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">网站资源收集</div></div></a></div><div class="next-post pull-right"><a href="/2023/12/12/e5918a/" title="SpringMvc"><img class="cover" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.6/bbg/27.jpg" onerror="onerror=null;src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">SpringMvc</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" onerror="this.onerror=null;this.src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="avatar"/></div><div class="author-info__name">我的公主-怡宝</div><div class="author-info__description">学习,应该是发自内心的,而不是被强加的!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/coderitl"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">本站所有图片来源于网络,侵权请添加管理员删除【3327511395@qq.com】!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">相关问题总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%A0%E5%AF%B9IOC%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">你对IOC的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UML%E6%98%AF%E4%BB%80%E4%B9%88-UML%E4%B8%AD%E5%A6%82%E4%BD%95%E8%A1%A8%E7%A4%BA%E7%BB%A7%E6%89%BF%E3%80%81%E5%85%B3%E8%81%94%E3%80%81%E4%BE%9D%E8%B5%96%E3%80%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.2.</span> <span class="toc-text">UML是什么?UML中如何表示继承、关联、依赖、实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E7%9A%84%E5%8E%9F%E5%88%99%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.3.</span> <span class="toc-text">依赖倒置的原则是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.4.</span> <span class="toc-text">接口和抽象类的区别是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-number">1.5.</span> <span class="toc-text">子类的实例化过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">1.6.</span> <span class="toc-text">事务的四大特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%84%8F%E8%AF%BB%E3%80%81%E5%B9%BB%E8%AF%BB%E3%80%81%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.7.</span> <span class="toc-text">脏读、幻读、不可重复读分别是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.8.</span> <span class="toc-text">事务的四个隔离级别分别是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList%E5%92%8ClinkedList%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.9.</span> <span class="toc-text">ArrayList和linkedList的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JDK%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8CCGLIB%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.10.</span> <span class="toc-text">JDK动态代理和CGLIB动态代理的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Autowired%E5%92%8C-Resource"><span class="toc-number">1.11.</span> <span class="toc-text">@Autowired和@Resource</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-number">1.12.</span> <span class="toc-text">什么是线程安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList%E5%92%8CVector%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.13.</span> <span class="toc-text">ArrayList和Vector的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%A0%E5%AF%B9AOP%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.14.</span> <span class="toc-text">你对AOP的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%92%8C-equals-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.15.</span> <span class="toc-text">&#x3D;&#x3D; 和 equals 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#String%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B-%E6%8E%A5%E6%94%B6%E4%BB%80%E4%B9%88%E5%8F%82%E6%95%B0-%E8%BF%94%E5%9B%9E%E4%BB%80%E4%B9%88%E5%80%BC"><span class="toc-number">1.16.</span> <span class="toc-text">String的常用方法有哪些?接收什么参数,返回什么值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#String%E5%92%8CStringBuilder%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.17.</span> <span class="toc-text">String和StringBuilder的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%A0%E7%9F%A5%E9%81%93SpringMVC%E5%B8%B8%E7%94%A8%E7%9A%84%E6%B3%A8%E8%A7%A3%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.18.</span> <span class="toc-text">你知道SpringMVC常用的注解有哪些</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#StringBuilder%E5%92%8CStringBuffer%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.19.</span> <span class="toc-text">StringBuilder和StringBuffer的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Collection%E5%92%8CCollections%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.20.</span> <span class="toc-text">Collection和Collections的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%A0%E5%AF%B9%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.21.</span> <span class="toc-text">你对代理模式的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jdk%E5%92%8Cjre%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.22.</span> <span class="toc-text">jdk和jre的区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMap%E5%92%8CHashtable%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.23.</span> <span class="toc-text">HashMap和Hashtable的区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMap%E7%9A%84put%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="toc-number">1.24.</span> <span class="toc-text">HashMap的put过程？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMap1-7%E5%92%8CHashMap1-8%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.25.</span> <span class="toc-text">HashMap1.7和HashMap1.8的区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">1.26.</span> <span class="toc-text">线程的状态有哪些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A6%81%E7%BB%99%E4%B8%80%E4%B8%AAList%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0%EF%BC%8C%E7%94%A8%E4%BB%80%E4%B9%88%E6%96%B9%E6%B3%95%EF%BC%9F-%E4%BB%8EList%E4%B8%AD%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E7%94%A8%E4%BB%80%E4%B9%88%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-number">1.27.</span> <span class="toc-text">要给一个List中添加元素，用什么方法？ 从List中删除一个元素用什么方法？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%ADMap%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AA%E9%94%AE%E5%80%BC%EF%BC%8C%E7%94%A8%E4%BB%80%E4%B9%88%E6%96%B9%E6%B3%95%EF%BC%9FMap%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AA%E5%80%BC%EF%BC%8C%E7%94%A8%E4%BB%80%E4%B9%88%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-number">1.28.</span> <span class="toc-text">判断Map中是否包含某个键值，用什么方法？Map中是否包含某个值，用什么方法？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E9%9B%86%E5%90%88%E7%9A%84%E4%BA%A4%E9%9B%86%E3%80%81%E5%B7%AE%E9%9B%86%E3%80%81%E5%B9%B6%E9%9B%86%EF%BC%9F"><span class="toc-number">1.29.</span> <span class="toc-text">如何计算两个集合的交集、差集、并集？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList%E5%92%8CLinkedList%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.30.</span> <span class="toc-text">ArrayList和LinkedList的区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91"><span class="toc-number">1.31.</span> <span class="toc-text">斐波那契</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By 我的公主-怡宝</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">coder-itl</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  function abcjsInit() {
+    function abcjsFn() {
+      for (let abcContainer of document.getElementsByClassName("abc-music-sheet")) {
+        ABCJS.renderAbc(abcContainer, abcContainer.innerHTML, {responsive: 'resize'})
+      }
+    }
+    
+    typeof ABCJS === 'object' ? abcjsFn()
+      : getScript('https://cdn.jsdelivr.net/npm/abcjs/dist/abcjs-basic-min.min.js').then(abcjsFn)
+  }
+
+  window.pjax ? abcjsInit() : document.addEventListener('DOMContentLoaded', abcjsInit)
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，默认线路托管于Vercel"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，联通线路托管于Coding"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Github托管"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify/lib/swiperbdage_init.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/06/23/59b60d90/" alt=""><img width="48" height="48" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/6aa08138516f481c8e3eae38b924889a.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-23</span><a class="blog-slider__title" href="2023/06/23/59b60d90/" alt="">标签插件</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2023/06/23/59b60d90/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/06/23/9f9a8f86/" alt=""><img width="48" height="48" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/1cd60185055548f497d783eef5a00c34.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-23</span><a class="blog-slider__title" href="2023/06/23/9f9a8f86/" alt="">Node-多版本无缝切换</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2023/06/23/9f9a8f86/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/06/23/5097b404/" alt=""><img width="48" height="48" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.6/bbg/18.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-23</span><a class="blog-slider__title" href="2023/06/23/5097b404/" alt="">加密列表</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2023/06/23/5097b404/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>

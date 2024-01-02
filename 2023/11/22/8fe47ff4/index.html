@@ -1,0 +1,650 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JDBC | </title><meta name="author" content="我的公主-怡宝"><meta name="copyright" content="我的公主-怡宝"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="JDBCMySQL 修改root账户密码  先使用原始密码(安装时设置的密码)登录  使用数据库 1use mysql;  修改密码 12345678-- 修改 root 用户的密码alter user &#x27;root&#x27;@&#x27;localhost&#x27; identified by &#x27;root&#x27;;-- 用于重新加载用户权限表flush privil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDBC">
+<meta property="og:url" content="https://coderitl.github.io/2023/11/22/8fe47ff4/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="JDBCMySQL 修改root账户密码  先使用原始密码(安装时设置的密码)登录  使用数据库 1use mysql;  修改密码 12345678-- 修改 root 用户的密码alter user &#x27;root&#x27;@&#x27;localhost&#x27; identified by &#x27;root&#x27;;-- 用于重新加载用户权限表flush privil">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/30.jpg">
+<meta property="article:published_time" content="2023-11-22T18:09:46.000Z">
+<meta property="article:modified_time" content="2024-01-02T12:07:27.904Z">
+<meta property="article:author" content="我的公主-怡宝">
+<meta property="article:tag" content="coder-itl、Spring Security、Spring Boot、Java、Git、Linux、Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/30.jpg"><link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png"><link rel="canonical" href="https://coderitl.github.io/2023/11/22/8fe47ff4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JDBC',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-02 12:07:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/my.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" onerror="onerror=null;src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> Java-学习路线</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/30.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title=""><span class="site-name"></span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> Java-学习路线</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JDBC</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-11-22T18:09:46.000Z" title="Created 2023-11-22 18:09:46">2023-11-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-02T12:07:27.904Z" title="Updated 2024-01-02 12:07:27">2024-01-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JDBC"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer"/>
+
+<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><h4 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h4><ul>
+<li><p>修改<code>root</code>账户密码</p>
+<ul>
+<li><p>先使用原始密码(<code>安装时设置的密码</code>)登录</p>
+</li>
+<li><p>使用数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改密码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 修改 root 用户的密码</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;root&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 用于重新加载用户权限表</span></span><br><span class="line">flush privileges;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 退出</span></span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>创建数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> [jdbc]</span><br><span class="line">  <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8</span><br><span class="line">  <span class="keyword">COLLATE</span> utf8_general_ci;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建表</p>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/0ce28dd58bae42e79df53640e08fa676.png" alt=""></p>
+<ul>
+<li><p>添加测试数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;开发部&#x27;</span>, <span class="string">&#x27;武汉&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">&#x27;测试部&#x27;</span>, <span class="string">&#x27;北京&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">&#x27;行政部&#x27;</span>, <span class="string">&#x27;武汉&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">4</span>, <span class="string">&#x27;销售部&#x27;</span>, <span class="string">&#x27;广州&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">5</span>, <span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;bbb&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">7</span>, <span class="string">&#x27;对对对&#x27;</span>, <span class="string">&#x27;NULL&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">8</span>, <span class="string">&#x27;11&#x27;</span>, <span class="string">&#x27;222&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">13</span>, <span class="string">&#x27;测试部1&#x27;</span>, <span class="string">&#x27;暂无&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">14</span>, <span class="string">&#x27;kkk&#x27;</span>, <span class="string">&#x27;rrrr&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">16</span>, <span class="string">&#x27;aaa&#x27;</span>, <span class="string">&#x27;1112&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> dept  <span class="keyword">VALUES</span> (<span class="number">17</span>, <span class="string">&#x27;bbb&#x27;</span>, <span class="string">&#x27;222&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
+<li><p>规范</p>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/d844b2d2880544daa892d246ced2e1ff.png" alt=""></p>
+</li>
+<li><p>概念</p>
+<ul>
+<li><code>JDBC</code>就是使用<code>Java</code>语言操作关系数据库的一套<code>API</code></li>
+<li>全程:(<code>Java DataBase Connectivity</code>)  <code>Java</code> 数据库连接</li>
+</ul>
+</li>
+<li><p>本质</p>
+<ul>
+<li>官方(<code>sun</code>公司)定义的一套操作所有关系型数据库的规则,即<code>接口</code></li>
+<li>各个数据库厂商去实现这套接口,提供数据库驱动的<code>jar</code>包</li>
+<li>我们可以实现这套接口(<code>JDBC</code>)编程,真正执行的代码是驱动<code>jar</code>包中的实现类</li>
+</ul>
+</li>
+<li><p>好处</p>
+<ul>
+<li>各数据库厂商使用相同的接口,<code>Java</code>代码不需要针对不同数据库分别开发</li>
+<li>可随时替换底层数据库,访问数据库的<code>Java</code>代码基本不变</li>
+</ul>
+</li>
+</ul>
+<h4 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h4><ul>
+<li><p>下载 <code>jar</code>包</p>
+<ul>
+<li><p>查看当前系统安装的<code>MySQL</code>版本</p>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/61c1add3413245dcb08e266b0dc71d81.png" alt=""></p>
+</li>
+<li><p>浏览器进入<code>https://mvnrepository.com/</code></p>
+</li>
+<li><p>搜索<code>MySQL Connector/J</code></p>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/4e676fbd0c6e41aa9ec1d59ce0d1f37a.png" alt="前两根据安装的版本选择驱动"></p>
+</li>
+<li><p>下载<code>jar</code>包</p>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/de252fdcbe6e4236aa3b3cd63096b672.png" alt="根据使用量选择下载,点击2处,进入下图"></p>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/f12515f1b77943b0a94ebcf08ed08311.png" alt=""></p>
+</li>
+<li><p>在<code>IDEA</code>新建项目,之后新建一个<code>lib</code>文件夹,存放<code>mysql</code>的<code>jar</code>包</p>
+<ol>
+<li><p>点击下图的<code>Add as Library</code></p>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/6943e01e5fce4141961d61e03ea0b3b8.png" alt=""></p>
+</li>
+<li><p>后续的弹窗直接点击<code>OK</code></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>基本使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JDBC 快速入门</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// 1. 注册驱动</span></span><br><span class="line">        Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">        <span class="comment">// 2. 获取连接</span></span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/jdbc?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;root&quot;</span>);</span><br><span class="line">        <span class="comment">// 3. 定义 SQL 语句</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;update dept set deptName=&#x27;政教处&#x27; where did=&#x27;5&#x27;&quot;</span>;</span><br><span class="line">        <span class="comment">// 4. 执行 SQL 对象</span></span><br><span class="line">        <span class="type">Statement</span> <span class="variable">statement</span> <span class="operator">=</span> conn.createStatement();</span><br><span class="line">        <span class="comment">// 5. 执行 SQL</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">isUpdate</span> <span class="operator">=</span> statement.executeUpdate(sql);</span><br><span class="line">        <span class="comment">// 6. 处理返回结果</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 7. 释放资源</span></span><br><span class="line">        statement.close();</span><br><span class="line">        conn.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="API-详解"><a href="#API-详解" class="headerlink" title="API-详解"></a>API-详解</h4><ul>
+<li><p><code>DriverManager</code></p>
+<ul>
+<li><p>功能</p>
+<ol>
+<li><p>注册驱动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 5+ 之后的版本可以省略不写</span></span><br><span class="line">Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>查看<code>Driver</code>源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">class</span> <span class="title class_">Driver</span> <span class="keyword">extends</span> <span class="title class_">NonRegisteringDriver</span> <span class="keyword">implements</span> <span class="title class_">java</span>.sql.Driver &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Driver</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// static</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            DriverManager.registerDriver(<span class="keyword">new</span> <span class="title class_">Driver</span>());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException var1) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;Can&#x27;t register driver!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>获取连接</p>
+<ul>
+<li><code>url</code>: <code>jdbc:mysql://localhost:3306/jdbc?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC</code></li>
+<li><code>user</code>: 数据库登录用户</li>
+<li><code>password</code>: 数据库登录密码</li>
+<li><code>MySQL8</code>配置<code>url</code>的一些细节<ol>
+<li><code>Driver =&gt; com.mysql.cj.jdbc.Driver</code></li>
+<li><code>MySQL8</code>以上版本不需要建立<code>SSL</code>连接的,需要显示关闭</li>
+<li><code>allowPublicKeyRetrieval=true</code>允许客户端从服务器获取公钥</li>
+<li>最后还需要设置<code>CST【时区】</code></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><code>Connection</code></p>
+<ol>
+<li><p>获取执行<code>SQL</code>对象</p>
+<ul>
+<li><p>普通执行<code>SQL</code>对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement <span class="title function_">statement</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>预编译<code>SQL</code>的执行<code>SQL</code>对象: <code>防止 SQL</code>注入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement <span class="title function_">preparedStatement</span><span class="params">(sql)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行存储过程的对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CallableStatement <span class="title function_">callableStatement</span><span class="params">(sql)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>事务管理</p>
+<ul>
+<li><p><code>MySQL</code>事务</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 开启事务: begin; start transaction;</span></span><br><span class="line"><span class="comment">-- 提交事务: commit;</span></span><br><span class="line"><span class="comment">-- 回滚事务: rollback;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- MySQL 默认自动提交事务</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>JDBC</code>事务</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启事务: setAutoCommit(boolean autoCommit); true为自动提交事务;false为手动提交事务,即显示手动的开启事务</span></span><br><span class="line"><span class="comment">// 提交事务: commit()</span></span><br><span class="line"><span class="comment">// 回滚事务: rollback();</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JDBC 快速入门</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// 1. 注册驱动</span></span><br><span class="line">        Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">        <span class="comment">// 2. 获取连接</span></span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/jdbc?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;root&quot;</span>);</span><br><span class="line">        <span class="type">Statement</span> <span class="variable">statement</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 手动开启事务</span></span><br><span class="line">            conn.setAutoCommit(<span class="literal">false</span>);</span><br><span class="line">            <span class="comment">// 3. 定义 SQL 语句</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">sql1</span> <span class="operator">=</span> <span class="string">&quot;update dept set deptName=&#x27;政教处&#x27; where did=&#x27;5&#x27;&quot;</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">sql2</span> <span class="operator">=</span> <span class="string">&quot;update dept set deptName=&#x27;政教处&#x27; where did=&#x27;5&#x27;&quot;</span>;</span><br><span class="line">            <span class="comment">// 4. 执行 SQL 对象</span></span><br><span class="line">            statement = conn.createStatement();</span><br><span class="line">            <span class="comment">// 5. 执行 SQL</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">isUpdate1</span> <span class="operator">=</span> statement.executeUpdate(sql1);</span><br><span class="line">            <span class="type">int</span> <span class="variable">isUpdate2</span> <span class="operator">=</span> statement.executeUpdate(sql1);</span><br><span class="line">            <span class="comment">// 成功后提交事务</span></span><br><span class="line">            conn.commit();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// 事务回滚</span></span><br><span class="line">            conn.rollback();</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 6. 处理返回结果</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 7. 释放资源</span></span><br><span class="line">        statement.close();</span><br><span class="line">        conn.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><code>Statement</code></p>
+<ul>
+<li><p>作用: 执行<code>SQL</code>语句</p>
+</li>
+<li><p>执行<code>SQL</code>语句</p>
+<ul>
+<li><p>增、删、改</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">executeUpdate</span><span class="params">(sql)</span>: 执行 DML、DDL 语句</span><br></pre></td></tr></table></figure>
+<ul>
+<li>返回值<ul>
+<li><code>DML</code>语句影响的行数</li>
+<li><code>DDL</code>语句执行后,执行成功也可能返回<code>0</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>查</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ResultSet <span class="title function_">executeQuery</span><span class="params">(sql)</span>: 执行 DQL 语句</span><br></pre></td></tr></table></figure>
+<ul>
+<li>返回值: <code>ResultSet</code>结果集对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>ResultSet</code></p>
+<ul>
+<li><p>作用: 封装了<code>DQL</code>查询语句的结果</p>
+</li>
+<li><p>获取查询结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="title function_">next</span><span class="params">()</span>; </span><br><span class="line"><span class="comment">// 1. 将光标从当前位置向前移动一行</span></span><br><span class="line"><span class="comment">// 2. 判断当前行是否为有效行</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>返回值<ul>
+<li><code>true</code>: 有效行,当前行有数据</li>
+<li><code>false</code>: 无效行,当前行没有数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据获取</p>
+<ul>
+<li><code>int</code>类型: <code>getInt(参数)，int 列的编号,从 1 开始</code></li>
+<li><code>String</code>类型: <code>getString(参数)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>PreparedStatement</code></p>
+<ul>
+<li><p>作用: 预编译<code>SQL</code>语句并执行: 预防<code>SQL</code>注入问题</p>
+</li>
+<li><p><code>SQL</code>注入</p>
+<blockquote>
+<p><code>SQL</code>注入是通过操作输入来修改实现定义好的<code>SQL</code>语句,用以达到执行代码对服务器进行<code>攻击</code>的方法</p>
+</blockquote>
+</li>
+<li><p>基本使用</p>
+<ol>
+<li><p>获取<code>PreparedStatement</code>对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SQL 语句中的参数值,使用 ？ 占位符代替</span></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select * from dept where did=?&quot;</span>;</span><br><span class="line"><span class="comment">// 通过 conn 对象获取 preparedStatement,并传入对应的 SQL</span></span><br><span class="line"><span class="type">PreparedStatement</span> <span class="variable">preparedStatement</span> <span class="operator">=</span> conn.prepareStatement(sql);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置参数值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// PreparedStatement 对象: setXxx(参数1,值): 给出现的 ? 赋值;</span></span><br><span class="line"><span class="comment">// 3. 定义 SQL 语句</span></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select * from dept where did=?&quot;</span>;</span><br><span class="line"><span class="comment">// 4. 执行 SQL 对象</span></span><br><span class="line">preparedStatement = conn.prepareStatement(sql);</span><br><span class="line"><span class="comment">// 1: 第一个出现的 ?,3: did=3[条件]</span></span><br><span class="line">preparedStatement.setInt(<span class="number">1</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<code>SQL</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">executeUpdate();/executeQuery();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>具体使用</p>
+<ol>
+<li><p><code>PreparedStatement</code>预编译功能开启:<code>useServerPrepStmts=true</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/st0104?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC&amp;useServerPrepStmts=true&quot;</span>, userName, password);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置<code>MySQL</code>执行日志(<code>需要重启MySQL服务后生效</code>)</p>
+<ul>
+<li><p><code>windows</code>中<code>my.ini</code>配置文件位置查找</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 可以在以下命令显示的路径中查找/或者上一级目录中【没有创建一个空的】</span></span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;datadir&#x27;</span>;</span><br><span class="line"><span class="keyword">select</span> @<span class="variable">@basedir</span>; </span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">log-output</span>=FILE</span><br><span class="line"><span class="attr">general-log</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">general_log_file</span>=<span class="string">&quot;D:\mysql.log&quot;</span></span><br><span class="line"><span class="attr">slow-query-log</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">slow_query_log_file</span>=<span class="string">&quot;mysql_slow.log&quot;</span></span><br><span class="line"><span class="attr">long_query_time</span>=<span class="number">2</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>原理</p>
+<ol>
+<li>在获取<code>PreparedStatement</code>对象时,将<code>sql</code>语句发送给<code>mysql</code>服务器进行检查,编译(<code>这些步骤很耗时</code>)</li>
+<li>执行时就不用在进行这些步骤了,速度很快</li>
+<li>如果<code>sql</code>模板一样,则只需要进行一次检查、编译</li>
+</ol>
+</li>
+<li><p>好处</p>
+<ul>
+<li>预编译<code>SQL</code>，性能更高</li>
+<li>防止<code>SQL</code>注入: <code>将敏感字符进行转义</code></li>
+</ul>
+</li>
+<li><p>完整操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.coderitl.jdbc;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.coderitl.entity.Account;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// 1. 加载驱动</span></span><br><span class="line">        Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line">        <span class="comment">// 2. 获取连接 st0104</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">userName</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line">        <span class="comment">// 更换了数据库</span></span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://localhost:3306/st0104?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC&quot;</span>, userName, password);</span><br><span class="line">        <span class="comment">// 3. 获取 PreparedStatement</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select * from account&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">update</span> <span class="operator">=</span> <span class="string">&quot;update account set accpass=?,tb_accname=? where accid=&#x27;1091&#x27;&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">PreparedStatement</span> <span class="variable">pst</span> <span class="operator">=</span> conn.prepareStatement(sql);</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">resultSet</span> <span class="operator">=</span> pst.executeQuery();</span><br><span class="line"></span><br><span class="line">        <span class="type">PreparedStatement</span> <span class="variable">upDateSql</span> <span class="operator">=</span> conn.prepareStatement(update);</span><br><span class="line">        upDateSql.setString(<span class="number">1</span>, <span class="string">&quot;asd&quot;</span>);</span><br><span class="line">        upDateSql.setString(<span class="number">2</span>, <span class="string">&quot;asd2&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">isUpdate</span> <span class="operator">=</span> upDateSql.executeUpdate();</span><br><span class="line">        <span class="keyword">if</span> (isUpdate &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;修改成功...........&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;修改失败...........&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Account</span> <span class="variable">account</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Account</span>();</span><br><span class="line">        List&lt;Account&gt; list = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">accid</span> <span class="operator">=</span> resultSet.getInt(<span class="string">&quot;accid&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">accName</span> <span class="operator">=</span> resultSet.getString(<span class="string">&quot;tb_accname&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">accpass</span> <span class="operator">=</span> resultSet.getString(<span class="string">&quot;accpass&quot;</span>);</span><br><span class="line">            <span class="type">int</span> <span class="variable">accstate</span> <span class="operator">=</span> resultSet.getInt(<span class="string">&quot;accstate&quot;</span>);</span><br><span class="line"></span><br><span class="line">            account.setAccid(accid);</span><br><span class="line">            account.setTbAccname(accName);</span><br><span class="line">            account.setAccpass(accpass);</span><br><span class="line">            account.setAccstate(accstate);</span><br><span class="line">            list.add(account);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h4><ul>
+<li>数据库连接池简介<ul>
+<li><code>数据库连接池</code>是个容器,负责分配、管理数据库连接</li>
+<li>它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个</li>
+<li>释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的数据库连接遗漏</li>
+</ul>
+</li>
+<li>好处<ul>
+<li>资源重用</li>
+<li>提升系统响应速度</li>
+<li>避免数据库连接遗漏</li>
+</ul>
+</li>
+<li><p><code>Druid</code>数据库连接池</p>
+<ul>
+<li>数据库连接池实现<ul>
+<li>标准接口<code>DataSource</code><ul>
+<li>官方(<code>SUN</code>)提供的数据库连接池标准接口,由第三方组织实现此接口</li>
+<li>功能: 获取连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>常见的数据库连接池<ul>
+<li><code>DBCP</code></li>
+<li><code>C3P0</code></li>
+<li><code>Druid</code></li>
+</ul>
+</li>
+<li><code>Druid(德鲁伊)</code><ul>
+<li><code>Druid</code>连接池是阿里巴巴开源的数据库连接池项目</li>
+<li>功能强大,性能优秀,是<code>Java</code>语言最好的数据库连接池之一</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>Durid</code>使用步骤</p>
+<ol>
+<li><p>导入<code>jar</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.16<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义配置文件</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件 druid.properties </span></span><br><span class="line"><span class="comment"># 官方文档 https://github.com/alibaba/druid/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98</span></span><br><span class="line"></span><br><span class="line"><span class="attr">driverClassName</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/st0104?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC&amp;useServerPrepStmts=true</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">root</span></span><br><span class="line"><span class="comment"># 初始化连接数量</span></span><br><span class="line"><span class="attr">initialSize</span>=<span class="string">5</span></span><br><span class="line"><span class="comment"># 最大连接数</span></span><br><span class="line"><span class="attr">maxActive</span>=<span class="string">10</span></span><br><span class="line"><span class="comment"># 最大等待时间</span></span><br><span class="line"><span class="attr">maxWait</span>=<span class="string">3000</span></span><br></pre></td></tr></table></figure>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/b08dc0918ac641a892abb61cd8e4f727.png" alt=""></p>
+</li>
+<li><p>加载配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3. 加载配置文件</span></span><br><span class="line"><span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">properties.load(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:\\network-class\\jdbc\\src\\main\\resources\\druid.properties&quot;</span>));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取数据库连接池对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 4. 获取数据库连接池对象</span></span><br><span class="line"><span class="type">DataSource</span> <span class="variable">dataSource</span> <span class="operator">=</span> DruidDataSourceFactory.createDataSource(properties);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取连接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> dataSource.getConnection();</span><br><span class="line"><span class="comment">// com.mysql.cj.jdbc.ConnectionImpl@543c6f6d</span></span><br><span class="line">System.out.println(conn);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>完整部分</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.coderitl.druid;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.pool.DruidDataSource;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.pool.DruidDataSourceFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Druid 连接池的使用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DruidDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// System.out.println(System.getProperty(&quot;user.dir&quot;));</span></span><br><span class="line">        <span class="comment">// 1. 导入 jar =&gt; pom.xml</span></span><br><span class="line">        <span class="comment">// 2. 定义配置文件 =&gt; druid.properties</span></span><br><span class="line">        <span class="comment">// 3. 加载配置文件</span></span><br><span class="line">        <span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">        properties.load(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:\\network-class\\jdbc\\src\\main\\resources\\druid.properties&quot;</span>));</span><br><span class="line">        <span class="comment">// 4. 获取数据库连接池对象</span></span><br><span class="line">        <span class="type">DataSource</span> <span class="variable">dataSource</span> <span class="operator">=</span> DruidDataSourceFactory.createDataSource(properties);</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> dataSource.getConnection();</span><br><span class="line">        <span class="comment">// com.mysql.cj.jdbc.ConnectionImpl@543c6f6d</span></span><br><span class="line">        System.out.println(conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="封装工具类"><a href="#封装工具类" class="headerlink" title="封装工具类"></a>封装工具类</h4><ul>
+<li><p>通用性工具类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.coderitl.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DBUtils</span> &#123;</span><br><span class="line">    <span class="comment">// 存储配置文件的 map</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">Properties</span> <span class="variable">PROPERTIES</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 首次使用工具类时加载驱动</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 通过复用本类自带流,读取配置文件</span></span><br><span class="line">            <span class="type">InputStream</span> <span class="variable">is</span> <span class="operator">=</span> DBUtils.class.getResourceAsStream(<span class="string">&quot;/druid.properties&quot;</span>);</span><br><span class="line">            <span class="comment">// 通过 PROPERTIES 对象流中的配置信息分割成键值对</span></span><br><span class="line">            PROPERTIES.load(is);</span><br><span class="line">            <span class="comment">// 加载驱动</span></span><br><span class="line">            Class.forName(PROPERTIES.getProperty(<span class="string">&quot;driverClassName&quot;</span>));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title function_">getConnection</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            conn = DriverManager.getConnection(</span><br><span class="line">                    PROPERTIES.getProperty(<span class="string">&quot;url&quot;</span>),</span><br><span class="line">                    PROPERTIES.getProperty(<span class="string">&quot;username&quot;</span>),</span><br><span class="line">                    PROPERTIES.getProperty(<span class="string">&quot;password&quot;</span>)</span><br><span class="line">            );</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> conn;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">closeAll</span><span class="params">(Connection conn, Statement statement, ResultSet resultSet)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (resultSet != <span class="literal">null</span>) &#123;</span><br><span class="line">                resultSet.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (statement != <span class="literal">null</span>) &#123;</span><br><span class="line">                statement.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (conn != <span class="literal">null</span>) &#123;</span><br><span class="line">                conn.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h4><ul>
+<li><p><code>ORM(Object Relational Mapping)</code></p>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>从数据库查询到的结果集(<code>ResultSet</code>)在进行遍历时,逐行遍历，取出的都是零散数据。在实际应用开发中,我们需要将零散的数据进行封装整理</p>
+</div>
+</li>
+<li><p>实体类(<code>entity</code>)</p>
+<ul>
+<li>零散数据的载体</li>
+<li>一行数据中,多个零散的数据进行整理</li>
+<li>通过<code>entity</code>的规则对表中的数据进行对象的封装</li>
+<li>表名=类名;列名=属性名;提供各个属性的<code>get、set</code>方法</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">我的公主-怡宝</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://coderitl.github.io/2023/11/22/8fe47ff4/">https://coderitl.github.io/2023/11/22/8fe47ff4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/30.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/23/290842ad/" title="前后端分离的-JavaWeb"><img class="cover" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/38.jpg" onerror="onerror=null;src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">前后端分离的-JavaWeb</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/14/ec1b637d/" title="新一代终端下载工具"><img class="cover" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/a34ec316c47a42b28b4e4454191c78b7.png" onerror="onerror=null;src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">新一代终端下载工具</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" onerror="this.onerror=null;this.src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="avatar"/></div><div class="author-info__name">我的公主-怡宝</div><div class="author-info__description">学习,应该是发自内心的,而不是被强加的!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">51</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/coderitl"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">本站所有图片来源于网络,侵权请添加管理员删除【3327511395@qq.com】!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDBC"><span class="toc-number">1.</span> <span class="toc-text">JDBC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL"><span class="toc-number">1.1.</span> <span class="toc-text">MySQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">1.3.</span> <span class="toc-text">快速入门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#API-%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.4.</span> <span class="toc-text">API-详解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="toc-number">1.5.</span> <span class="toc-text">数据库连接池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">1.6.</span> <span class="toc-text">封装工具类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ORM"><span class="toc-number">1.7.</span> <span class="toc-text">ORM</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By 我的公主-怡宝</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">coder-itl</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  function abcjsInit() {
+    function abcjsFn() {
+      for (let abcContainer of document.getElementsByClassName("abc-music-sheet")) {
+        ABCJS.renderAbc(abcContainer, abcContainer.innerHTML, {responsive: 'resize'})
+      }
+    }
+    
+    typeof ABCJS === 'object' ? abcjsFn()
+      : getScript('https://cdn.jsdelivr.net/npm/abcjs/dist/abcjs-basic-min.min.js').then(abcjsFn)
+  }
+
+  window.pjax ? abcjsInit() : document.addEventListener('DOMContentLoaded', abcjsInit)
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，默认线路托管于Vercel"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，联通线路托管于Coding"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Github托管"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify/lib/swiperbdage_init.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/06/23/59b60d90/" alt=""><img width="48" height="48" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/6aa08138516f481c8e3eae38b924889a.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-23</span><a class="blog-slider__title" href="2023/06/23/59b60d90/" alt="">标签插件</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2023/06/23/59b60d90/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/06/23/9f9a8f86/" alt=""><img width="48" height="48" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/1cd60185055548f497d783eef5a00c34.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-23</span><a class="blog-slider__title" href="2023/06/23/9f9a8f86/" alt="">Node-多版本无缝切换</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2023/06/23/9f9a8f86/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/06/23/5097b404/" alt=""><img width="48" height="48" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.6/bbg/18.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-23</span><a class="blog-slider__title" href="2023/06/23/5097b404/" alt="">加密列表</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2023/06/23/5097b404/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>

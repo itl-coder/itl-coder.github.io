@@ -1,0 +1,167 @@
+@font-face {
+  font-family: "Er";
+  src: url("https://coderitl.github.io/fonts/CO1251B.eot?") format("eot"),
+    url("https://coderitl.github.io/fonts/CO1251B.woff") format("woff"),
+    url("https://coderitl.github.io/fonts/CO1251B.ttf") format("truetype"),
+    url("https://coderitl.github.io/fonts/CO1251B.svg#ER-Kurier1251Bold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root,
+body {
+  font-family: "Er" !important;
+}
+
+/* 首页文章卡片 */
+#recent-posts>.recent-post-item {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 首页侧栏卡片 */
+.card-widget {
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* 文章页面正文背景 */
+div#post {
+  background: rgba(255, 255, 255, 0.97);
+}
+
+/* 分页页面 */
+div#page {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 归档页面 */
+div#archive {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 标签页面 */
+div#tag {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 分类页面 */
+div#category {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+#aside-content .card-widget {
+  margin: 8px;
+}
+
+.error404 #error-wrap {
+  opacity: 0.8 !important;
+}
+
+
+
+#git_container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 3px;
+}
+
+#history-container {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+a:hover {
+  padding: 2px;
+  color: red !important;
+  border-bottom: 2px solid red;
+  text-decoration: none !important;
+  transition: all 0.2s;
+}
+
+img {
+  border-radius: 5px !important;
+  border: 3px solid #428bca;
+  padding: 10px;
+}
+
+#article-container li::marker {
+  color: rgb(242, 86, 59) !important;
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+#article-container li:hover::marker {
+  color: #6842ff !important;
+}
+
+figure.highlight pre .comment {
+  color: #ffa923 !important;
+}
+
+#article-container pre,
+#article-container figure.highlight {
+  color: #f6f6f6 !important;
+}
+
+figure.highlight pre .ruby .class .title,
+figure.highlight pre .css .rules .attribute,
+figure.highlight pre .string,
+figure.highlight pre .value,
+figure.highlight pre .inheritance,
+figure.highlight pre .header,
+figure.highlight pre .ruby .symbol,
+figure.highlight pre .xml .cdata,
+figure.highlight pre .special,
+figure.highlight pre .number,
+figure.highlight pre .formula {
+  color: #c469d9 !important;
+}
+
+blockquote {
+  color: #024289 !important;
+}
+
+#aside-content #card-toc .toc-content {
+  font-size: 12px !important;
+}
+
+.site-data>a .headline {
+  font-size: 12px !important;
+}
+
+.avatar-img img {
+  border-radius: 50% !important;
+  padding: 5px;
+}
+
+table th,
+table td {
+  border: 1px solid #c9acac;
+}
+
+
+#content-inner {
+  margin-top: 40px;
+}
+
+#article-container code {
+  background: none !important;
+  color: #ff9393 !important;
+  font-weight: 400;
+}
+
+.site-card .info span {
+  margin-top: 10px;
+}
+
+wavy {
+  color: #e01212;
+}
+
+.img-alt {
+  color: #49b1f5;
+}
+
+.note.blue:not(.disabled).modern {
+  color: #1375ca !important;
+}
