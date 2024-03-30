@@ -1,0 +1,430 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JWT | </title><meta name="author" content="怡宝"><meta name="copyright" content="怡宝"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="1&#123;% note blue &#x27;fas fa-bullhorn&#x27; modern %&#125;&#123;% endnote %&#125; JWTJWT 能做什么 授权 一旦用户登录,每个后续请求将包含JWT，从而允许用户访问该令牌允许的路由,服务和资源,单点登录是当今广泛使用JWT 的一项功能,因为他的开销很小并且可以在同的作用域中轻松使用   信息交换 JSO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JWT">
+<meta property="og:url" content="https://coderitl.github.io/2024/03/30/1bb08f7a/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="1&#123;% note blue &#x27;fas fa-bullhorn&#x27; modern %&#125;&#123;% endnote %&#125; JWTJWT 能做什么 授权 一旦用户登录,每个后续请求将包含JWT，从而允许用户访问该令牌允许的路由,服务和资源,单点登录是当今广泛使用JWT 的一项功能,因为他的开销很小并且可以在同的作用域中轻松使用   信息交换 JSO">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/19.jpg">
+<meta property="article:published_time" content="2024-03-30T11:38:07.000Z">
+<meta property="article:modified_time" content="2024-03-30T10:02:15.517Z">
+<meta property="article:author" content="怡宝">
+<meta property="article:tag" content="coder-itl、Spring Security、Spring Boot、Java、Git、Linux、Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/19.jpg"><link rel="shortcut icon" href="https://img-blog.csdnimg.cn/f44f454681b440f3a8ae5f086d3c07d9.png"><link rel="canonical" href="https://coderitl.github.io/2024/03/30/1bb08f7a/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JWT',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-30 10:02:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/my.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" onerror="onerror=null;src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">76</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> Java-学习路线</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/19.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title=""><span class="site-name"></span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/Java-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><i class="fa-fw fas fa-link"></i><span> Java-学习路线</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JWT</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-30T11:38:07.000Z" title="Created 2024-03-30 11:38:07">2024-03-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-03-30T10:02:15.517Z" title="Updated 2024-03-30 10:02:15">2024-03-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JWT"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><meta name="referrer" content="no-referrer"/>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note blue &#x27;fas fa-bullhorn&#x27; modern %&#125;&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h3><h4 id="JWT-能做什么"><a href="#JWT-能做什么" class="headerlink" title="JWT 能做什么"></a>JWT 能做什么</h4><ul>
+<li><p>授权</p>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>一旦用户登录,每个后续请求将包含<code>JWT</code>，从而允许用户访问该令牌允许的路由,服务和资源,单点登录是当今广泛使用<code>JWT</code> 的一项功能,因为他的开销很小并且可以在同的作用域中轻松使用</p>
+</div>
+</li>
+<li><p>信息交换</p>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p><code>JSON Web Token</code> 是在各方之间安全地传输信息地好方法,因为可以对<code>JWT</code> 进行签名(例如: 使用<code>公钥/私钥对</code>),此外,由于签名是使用标头和有效负载计算的,因此可以验证内容是否遭到篡改</p>
+</div>
+</li>
+</ul>
+<h4 id="为什么是JWT"><a href="#为什么是JWT" class="headerlink" title="为什么是JWT"></a>为什么是JWT</h4><h5 id="基于传统的Session-认证"><a href="#基于传统的Session-认证" class="headerlink" title="基于传统的Session 认证"></a>基于传统的<code>Session</code> 认证</h5><ul>
+<li><p><code>Session</code></p>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p><code>http</code> 协议本身是一种无状态的协议,而这就意味着如果用户向我们的应用提供了用户名和密码来进行认证,那么下一次请求时,用户还要再一次进行用户认证才行,因为根据<code>http</code> 协议,我们并不知道是那个用户发出的请求,所以为了让我们的应用能识别是那个用户发出的请求,我们只能在服务器存储一份用户登录的信息,这个登录信息会在响应时传递给浏览器,告诉其保存在<code>cookie</code>，以便于下次请求时发送给我们的应用,这样我们的应用就能识别请求来自那个用户了,这就是传统的基于<code>session</code> 认证</p>
+</div>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/6fc72efeae6242dfa532cbdb54b90589.png" alt=""></p>
+<ul>
+<li><p>这样将产生如下的问题</p>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
+<li><p>每个用户经过我们的应用认证之后,我们的应用都要在服务端做一次记录,以方便用户下次请求的鉴别,通常而言<code>session</code> 都是保存在内存中,而随着认证用户的增多,服务器的开销会明显增大</p>
+</li>
+<li><p>用户认证之后,服务端做认证记录,如果认证的记录被保存在内存中的化,这意味着用户下次请求还必须要请求,这样才能拿到授权的资源,这样在分布的应用上,相应的限制了负载均衡的能力,这也意味着限制了应用的扩展能力</p>
+</li>
+<li><p>因为基于<code>cookie</code> 来进行用户识别的,<code>cookie</code> 如果被获取,用户很容易受到跨站请求伪造的攻击</p>
+</li>
+<li><p>在前后端分离系统中更加痛苦:</p>
+<p>也就是说前后端分离在应用解耦后增加了部署的复杂性,通常用户一次请求就要转发多次,如果用<code>sessionid</code> 到服务器,服务器还要查询用户信息,同时,如果用户很多,这些信息存储在服务器内存中,给服务器增加了负担，还有就是<code>CSRF(跨站伪造请求攻击)</code>,<code>session</code> 是基于<code>cookie</code> 进行用户识别的,<code>cookie</code> 如果被捕获了,用户就很容易受到跨站伪造攻击,还有就是<code>sessionid</code> 就是一个特征值,表达的信息不够丰富,不容易扩展,而且如果你后端应用是多节点部署,那么就需要实现<code>session</code> 共享机制,不方便应用集群</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="基于JWT认证"><a href="#基于JWT认证" class="headerlink" title="基于JWT认证"></a>基于JWT认证</h5><ul>
+<li><p>认证流程图</p>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/733179115d8c43b0abebc19a7042d4cb.png#pic_center" alt=""></p>
+</li>
+<li><p>流程详细说明</p>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ul>
+<li>首先,前端通过<code>web</code> 表单将自己的用户名和密码发送到后端接口,这一过程一般是<code>HTTP POST</code> 请求,建议的方式是用过<code>SSL</code> 加密的传输(<code>https</code> 协议),从而避免敏感的信息被嗅探</li>
+<li>后端核对用户名和密码成功后,将用户的<code>id</code> 等其他信息作为<code>JWT Payload（负载）</code>,将其与头部分别进行<code>Base64</code> 编码拼接后签名,形成一个<code>JWT</code>，形成的<code>JWT</code> 是一个形同<code>xxx.xxx.xxx</code> 的字符串</li>
+<li>后端将<code>JWT</code> 字符串作为登录成功的返回结果返回给前端,前端可以将返回结果保存在<code>localStorage或sessionStorage</code> 上,退出登录时前端删除保存的<code>JWT</code> 即可</li>
+<li>前端在每次请求时将<code>JWT</code> 放入<code>HTP Header</code> 中的<code>Authorization(解决XSS和XSRF问题)</code></li>
+<li>验证通过后后端使用<code>JWT</code> 中包含的用户信息进行其他逻辑操作,返回响应的结果</li>
+</ul>
+</div>
+</li>
+<li><p><code>JWT</code> 的优势</p>
+<ul>
+<li>简洁:  可以通过<code>URL、POST</code> 参数或者在<code>HTTP Header</code> 发送,因为数据量小,传输速度也很快</li>
+<li>自包含: 负载中包含了所有用户所需的信息,避免了多次查询数据库</li>
+<li>因为<code>Token</code> 是以<code>JSON</code> 加密的形式保存在客户端的,所以<code>JWT</code> 是跨语言的,原则上任何<code>web</code> 形式都支持</li>
+<li>不需要在服务端保存会话信息,特别适用于分布式微服务</li>
+</ul>
+</li>
+</ul>
+<h4 id="JWT结构"><a href="#JWT结构" class="headerlink" title="JWT结构"></a>JWT结构</h4><ul>
+<li><p>令牌组成</p>
+<ol>
+<li><p>标头(<code>Header</code>)</p>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>标头通常由两部分组成: 令牌的类型(即<code>JWT</code>)和所使用的签名算法,例如<code>MAC、SHA256、RSA</code> 他会使用<code>Base64</code> 编码组成<code>JWT</code> 结构的第一部分,<code>Base64</code> 是一种编码,也就是说,它是可以被翻译回原来的样子的,它并不是一种加密过程</p>
+</div>
+</li>
+<li><p>有效载荷(<code>Payload</code>)</p>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>令牌的第二部分是有效负载,其中包含声明,声明是有关实体(通常是用户)和其他数据的声明,同样的,它会使用<code>Base64</code> 编码组成<code>JWT</code> 结构的第二部分</p>
+</div>
+</li>
+<li><p>签名(<code>Signature</code>)</p>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>前面两部分都是使用<code>Base64</code> 进行编码的,即前端可以解开知道里面的信息,<code>Signature</code> 需要使用编码后的<code>header</code> 和<code>payload</code> 以及我们提供的一个密钥,然后使用<code>Base64</code> 中指定的签名算法(<code>HS265</code>)进行签名,签名的作用是保证<code>JWT</code> 没有被篡改</p>
+</div>
+</li>
+</ol>
+<ul>
+<li><p>使用签名的目的</p>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>最后一步签名的过程,实际上是对头部以及负载内容进行签名,防止内容被篡改,如果有人对头部以及负载的内容解码之后进行修改,再进行编码,最后加上之前的签名组合形成新的<code>JWT</code> 的话,那么服务器端会判断出新的头部和负载形成的签名和<code>JWT</code> 附带上的签名是不一样的,如果要对新的头部和负载进行签名,在不知道服务器加密时用密钥的话,得出来的签名也是不一样的</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h4><ul>
+<li><p>添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.jsonwebtoken<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jjwt<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;jjwt.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.cloud.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> io.jsonwebtoken.Claims;</span><br><span class="line"><span class="keyword">import</span> io.jsonwebtoken.Jws;</span><br><span class="line"><span class="keyword">import</span> io.jsonwebtoken.JwtException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.crypto.SecretKey;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ITokenService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> SecretKey <span class="title function_">getSecretKey</span><span class="params">()</span>; <span class="comment">// 获取当前 JWT 数据的加密 key</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">createToken</span><span class="params">(String id, Map&lt;String, Object&gt; subject)</span>; <span class="comment">// 创建 Token 的数据内容</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Jws&lt;Claims&gt; <span class="title function_">parseToken</span><span class="params">(String token)</span> <span class="keyword">throws</span> JwtException; <span class="comment">// 解析 Token 数据</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">verifyToken</span><span class="params">(String token)</span>; <span class="comment">// 验证 Token 有效性</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">refreshToken</span><span class="params">(String token)</span>; <span class="comment">// 刷新 Token 内容</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.cloud.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.cloud.config.JwtConfigProperties;</span><br><span class="line"><span class="keyword">import</span> com.example.cloud.<span class="keyword">module</span>.domain.exception.CoderItlException;</span><br><span class="line"><span class="keyword">import</span> com.example.cloud.service.ITokenService;</span><br><span class="line"><span class="keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line"><span class="keyword">import</span> io.jsonwebtoken.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.codec.binary.Base64;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.crypto.SecretKey;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.spec.SecretKeySpec;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TokenServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">ITokenService</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ObjectMapper objectMapper;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JwtConfigProperties jwtConfigProperties;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;spring.application.name&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String applicationName;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">SignatureAlgorithm</span> <span class="variable">signatureAlgorithm</span> <span class="operator">=</span> SignatureAlgorithm.HS256; <span class="comment">// 签名算法</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> SecretKey <span class="title function_">getSecretKey</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">byte</span>[] encodeKey = Base64.decodeBase64(Base64.encodeBase64(<span class="built_in">this</span>.jwtConfigProperties.getSecret().getBytes()));</span><br><span class="line">        <span class="comment">// 获取加密的 key</span></span><br><span class="line">        <span class="type">SecretKey</span> <span class="variable">key</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SecretKeySpec</span>(encodeKey, <span class="number">0</span>, encodeKey.length, <span class="string">&quot;AES&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> key;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">createToken</span><span class="params">(String id, Map&lt;String, Object&gt; subject)</span> &#123;</span><br><span class="line">        <span class="type">Date</span> <span class="variable">nowDate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>(); <span class="comment">// 获取当前时间</span></span><br><span class="line">        <span class="type">Date</span> <span class="variable">expireDate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>(nowDate.getTime() + jwtConfigProperties.getExpire() * <span class="number">1000</span>); <span class="comment">// 证书过期时间</span></span><br><span class="line">        <span class="type">JwtBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        HashMap&lt;String,Object&gt; claims = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String,Object&gt;();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            builder = Jwts.builder() <span class="comment">// 对象实例化</span></span><br><span class="line">                    .setIssuer(jwtConfigProperties.getIssuer())</span><br><span class="line">                    .setClaims(claims) <span class="comment">// 保存附加的数据</span></span><br><span class="line">                    .setSubject(<span class="built_in">this</span>.objectMapper.writeValueAsString(subject)) <span class="comment">// 所要传递的数据转为 JSON</span></span><br><span class="line">                    .setId(id) <span class="comment">// 保存id信息</span></span><br><span class="line">                    .setIssuedAt(nowDate) <span class="comment">// 签发时间</span></span><br><span class="line">                    .setIssuer(<span class="built_in">this</span>.jwtConfigProperties.getIssuer()) <span class="comment">// 设置签发者</span></span><br><span class="line">                    .setExpiration(expireDate) <span class="comment">// 配置失效时间</span></span><br><span class="line">                    .signWith(<span class="built_in">this</span>.signatureAlgorithm, <span class="built_in">this</span>.getSecretKey()); <span class="comment">// 获取签名算法</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> builder.compact(); <span class="comment">// 创建 token</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 解析 token</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Jws&lt;Claims&gt; <span class="title function_">parseToken</span><span class="params">(String token)</span> <span class="keyword">throws</span> JwtException &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.verifyToken(token)) &#123; <span class="comment">// 只有正确的时候才解析token</span></span><br><span class="line">            Jws&lt;Claims&gt; claims = Jwts.parser().setSigningKey(<span class="built_in">this</span>.getSecretKey()).parseClaimsJws(token);</span><br><span class="line">            <span class="keyword">return</span> claims;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">CoderItlException</span>(<span class="number">500</span>, <span class="string">&quot;Token解析异常!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 验证token</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">verifyToken</span><span class="params">(String token)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 解析JWT token并获取其载荷（payload）部分</span></span><br><span class="line">            Jwts.parser().setSigningKey(<span class="built_in">this</span>.getSecretKey()).parseClaimsJws(token).getBody();</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ExpiredJwtException e) &#123;</span><br><span class="line">            <span class="comment">// 如果JWT token已过期，则抛出自定义异常CoderItlException，并返回500错误状态码和错误信息&quot;Token已过期!&quot;</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">CoderItlException</span>(<span class="number">500</span>, <span class="string">&quot;Token已过期!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (MalformedJwtException e) &#123;</span><br><span class="line">            <span class="comment">// 如果JWT token格式错误，则抛出运行时异常，并将原始异常传递下去</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">CoderItlException</span>(<span class="number">500</span>, <span class="string">&quot;Token格式错误!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SignatureException e) &#123;</span><br><span class="line">            <span class="comment">// 如果JWT token签名错误，则抛出运行时异常，并将原始异常传递下去</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">CoderItlException</span>(<span class="number">500</span>, <span class="string">&quot;Token签名错误!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;</span><br><span class="line">            <span class="comment">// 如果JWT token参数错误，则抛出运行时异常，并将原始异常传递下去</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">CoderItlException</span>(<span class="number">500</span>, <span class="string">&quot;Token参数错误!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">CoderItlException</span>(<span class="number">500</span>, e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 刷新token</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">refreshToken</span><span class="params">(String token)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.verifyToken(token)) &#123;</span><br><span class="line">            Jws&lt;Claims&gt; jws = <span class="built_in">this</span>.parseToken(token); <span class="comment">// 解析 token 数据</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.createToken(jws.getBody().getId(), <span class="built_in">this</span>.objectMapper.convertValue(jws.getBody().getSubject(), Map.class));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">CoderItlException</span>(<span class="number">500</span>, <span class="string">&quot;Token 刷新失败!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成<code>Token</code></p>
+<p><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img-blog.csdnimg.cn/813393b9f11b4babae8fe2e0fbbe2b61.png" alt=""></p>
+</li>
+</ul>
+<h4 id="SSO"><a href="#SSO" class="headerlink" title="SSO"></a>SSO</h4><ul>
+<li>使用步骤<ul>
+<li>登录成功后把生成的<code>JWT</code>存储到<code>Redis</code>中</li>
+<li>用户退出时,从<code>Redis</code>中删除该<code>Token</code></li>
+<li>用户每次访问时,先校验<code>JWT</code>是否合法,如果合法再从<code>Redis</code>中取出<code>jwt</code>，判断这个<code>JWT</code>是否还存在,如果不存在说明用户已经退出,就返回未登录</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://coderitl.github.io">怡宝</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://coderitl.github.io/2024/03/30/1bb08f7a/">https://coderitl.github.io/2024/03/30/1bb08f7a/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.5/bg/19.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/03/30/0/" title=""><img class="cover" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.4/re-15.jpg" onerror="onerror=null;src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" onerror="this.onerror=null;this.src='https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg'" alt="avatar"/></div><div class="author-info__name">怡宝</div><div class="author-info__description">学习,应该是发自内心的,而不是被强加的!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">76</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/coderitl"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">本站所有图片来源于网络,侵权请添加管理员删除【3327511395@qq.com】!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JWT"><span class="toc-number">1.</span> <span class="toc-text">JWT</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JWT-%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.</span> <span class="toc-text">JWT 能做什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AFJWT"><span class="toc-number">1.2.</span> <span class="toc-text">为什么是JWT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E4%BC%A0%E7%BB%9F%E7%9A%84Session-%E8%AE%A4%E8%AF%81"><span class="toc-number">1.2.1.</span> <span class="toc-text">基于传统的Session 认证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8EJWT%E8%AE%A4%E8%AF%81"><span class="toc-number">1.2.2.</span> <span class="toc-text">基于JWT认证</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JWT%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">JWT结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E4%BD%BF%E7%94%A8"><span class="toc-number">1.4.</span> <span class="toc-text">具体使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSO"><span class="toc-number">1.5.</span> <span class="toc-text">SSO</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By 怡宝</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">coder-itl</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  function abcjsInit() {
+    function abcjsFn() {
+      for (let abcContainer of document.getElementsByClassName("abc-music-sheet")) {
+        ABCJS.renderAbc(abcContainer, abcContainer.innerHTML, {responsive: 'resize'})
+      }
+    }
+    
+    typeof ABCJS === 'object' ? abcjsFn()
+      : getScript('https://cdn.jsdelivr.net/npm/abcjs/dist/abcjs-basic-min.min.js').then(abcjsFn)
+  }
+
+  window.pjax ? abcjsInit() : document.addEventListener('DOMContentLoaded', abcjsInit)
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://npm.elemecdn.com/hexo-butterfly-clock/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，默认线路托管于Vercel"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，联通线路托管于Coding"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Github托管"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-footer-beautify/lib/swiperbdage_init.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/06/23/59b60d90/" alt=""><img width="48" height="48" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.10/day321/44.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-23</span><a class="blog-slider__title" href="2023/06/23/59b60d90/" alt="">标签插件</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2023/06/23/59b60d90/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/06/23/9f9a8f86/" alt=""><img width="48" height="48" src= "https://i0.imgs.ovh/2023/11/08/lSn6l.jpeg" data-lazy-src="https://cdn.jsdelivr.net/gh/coderitl/hiddenContent@v1.0.4/re-5.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-06-23</span><a class="blog-slider__title" href="2023/06/23/9f9a8f86/" alt="">Node-多版本无缝切换</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2023/06/23/9f9a8f86/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
